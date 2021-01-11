@@ -1,0 +1,37 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
+
+    defaultConfig {
+        applicationId "com.example.uhf"
+        minSdkVersion 14
+        targetSdkVersion 28
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+}
+
+allprojects {
+    repositories {
+        maven { url 'http://repo1.maven.org/maven2' }
+    }
+}
+dependencies {
+    implementation files('libs/xUtils-2.5.5.jar')
+    implementation 'com.android.support:support-v4:28.0.0'
+    implementation files('libs/jxl.jar')
+    implementation files('libs/deviceapi20190214.jar')
+}
